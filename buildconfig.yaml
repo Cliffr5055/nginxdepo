@@ -1,0 +1,14 @@
+apiVersion: "build.openshift.io/v1"
+kind: "BuildConfig"
+metadata:
+  name: "local-image"
+spec:
+  output:
+    to:
+      kind: "ImageStreamTag"
+      name: "local-image:latest"
+  source:
+    type: Binary
+  strategy:
+    type: dockerStrategy
+    dockerStrategy: {}
