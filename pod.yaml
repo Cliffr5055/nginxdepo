@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  # Pod name
+  name: test-pod
+spec:
+  containers:
+    # Container name
+    - name: test-container
+      # Using the base image
+      image: "image-registry.openshift-image-registry.svc:5000/openshift/ccs-rhel7-base-amd64"
+      # Starting a shell
+      command: ["/bin/sh","-c"]
+      # Echoing a Hello World followed by an infinitely waiting cat
+      args: ["echo 'Hello World!'; cat"]
+      # Need a tty if we are to SSH. Need stdin for tty
+      tty: true
+      stdin: true
